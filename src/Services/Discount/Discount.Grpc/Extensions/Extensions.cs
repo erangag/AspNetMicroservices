@@ -1,6 +1,6 @@
 ﻿using Npgsql;
 
-namespace Discount.API
+namespace Discount.Grpc.Extensions
 {
     public static class HostExtensions
     {
@@ -51,7 +51,7 @@ namespace Discount.API
                     if (retryForAvailability < 50)
                     {
                         retryForAvailability++;
-                        System.Threading.Thread.Sleep(2000);
+                        Thread.Sleep(2000);
                         MigrateDatabase<TContext>(host, retryForAvailability);
                     }
                 }
